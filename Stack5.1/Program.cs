@@ -4,22 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp2
-{
     class Program
     {
         static void Main(string[] args)
         {
           
 
-            Stack<string> myStack = new Stack<string>();
+            Stack<string> myBag = new Stack<string>();
             string choice;
 
             Console.WriteLine("Welcome to my STACK PROGRAM");
 
             do
             {
-                Console.WriteLine("Choose what you want to do?");
+                Console.WriteLine("Choose what you want to do: ");
                 Console.WriteLine("1 – PUSH");
                 Console.WriteLine("2 – POP");
                 Console.WriteLine("3 – SEARCH");
@@ -37,8 +35,8 @@ namespace ConsoleApp2
                     case "1":
                         Console.Write("Enter new data to push: ");
                         string inputData = Console.ReadLine();
-                        myStack.Push(inputData);
-                        Console.WriteLine("New data has been added!\n");
+                        myBag.Push(inputData);
+                        Console.WriteLine("New data added\n");
                         break;
 
                     case "2":
@@ -46,29 +44,29 @@ namespace ConsoleApp2
                         int countToPop;
                         if (int.TryParse(Console.ReadLine(), out countToPop))
                         {
-                            if (countToPop > myStack.Count || countToPop <= 0)
+                            if (countToPop > myBag.Count || countToPop <= 0)
                             {
-                                Console.WriteLine("Operation not accepted.\n");
+
                             }
                             else
                             {
                                 for (int i = 0; i < countToPop; i++)
                                 {
-                                    myStack.Pop();
+                                    myBag.Pop();
                                 }
                                 Console.WriteLine($"{countToPop} item(s) popped successfully!\n");
                             }
                         }
                         else
                         {
-                            Console.WriteLine("Invalid input number.\n");
+
                         }
                         break;
 
                     case "3":
                         Console.Write("Enter data to search: ");
                         string searchData = Console.ReadLine();
-                        if (myStack.Contains(searchData))
+                        if (myBag.Contains(searchData))
                         {
                             Console.WriteLine($"Data '{searchData}' was found in the stack.\n");
                         }
@@ -79,9 +77,9 @@ namespace ConsoleApp2
                         break;
 
                     case "4":
-                        if (myStack.Count > 0)
+                        if (myBag.Count > 0)
                         {
-                            Console.WriteLine($"Top element (Peek): {myStack.Peek()}\n");
+                            Console.WriteLine($"Top element (Peek): {myBag.Peek()}\n");
                         }
                         else
                         {
@@ -90,10 +88,10 @@ namespace ConsoleApp2
                         break;
 
                     case "5":
-                        if (myStack.Count > 0)
+                        if (myBag.Count > 0)
                         {
                             Console.WriteLine("Elements in the stack:");
-                            foreach (var item in myStack)
+                            foreach (var item in myBag)
                             {
                                 Console.WriteLine(item);
                             }
@@ -101,20 +99,20 @@ namespace ConsoleApp2
                         }
                         else
                         {
-                            Console.WriteLine("The stack is empty.\n");
+                            Console.WriteLine("Walang laman.\n");
                         }
                         break;
 
                     case "6":
-                        Console.WriteLine($"Number of items in stack: {myStack.Count}\n");
+                        Console.WriteLine($"Number of items in stack: {myBag.Count}\n");
                         break;
 
                     case "7":
-                        Console.WriteLine("Exiting program... Thank you!");
+                        Console.WriteLine("Salamat ya!");
                         break;
 
                     default:
-                        Console.WriteLine("Invalid choice. Please enter a number between 1 and 7.\n");
+
                         break;
                 }
 
